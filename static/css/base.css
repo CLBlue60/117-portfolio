@@ -1,0 +1,112 @@
+:root {
+  --comic-font: "Comic Relief", system-ui;
+  --bebas-font: "Bebas Neue", system-ui;
+  --primary-color: #012626;
+  --secondary-color: #f2a20c;
+  --background-color: #730202;
+}
+
+html {
+  font-family: var(--comic-font);
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--background-color);
+  color: white;
+  min-height: 100vh;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--secondary-color)
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  padding: 2rem;
+}
+
+h1 {
+  font-family: var(--bebas-font);
+  color: var(--secondary-color);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-family: var(--bebas-font);
+  color: var(--primary-color);
+  font-size: 1.7rem;
+}
+
+.subtitles {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  text-align: center;
+  max-width: 80%;
+}
+
+.text-label {
+  color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  padding: 1% 2%;
+  border-radius: 25px;
+  color: var(--background-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.center-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.no-js .hamburger-menu {
+  display: none;
+}
+
+.no-js .nav-options {
+  display: flex;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  header {
+    flex-direction: column;
+  }
+
+  .header-left-side {
+    width: 100%;
+  }
+
+  .subtitles {
+    font-size: 1.2rem;
+  }
+}

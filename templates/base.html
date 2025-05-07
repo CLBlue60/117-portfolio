@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Relief:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sections.css' %}">
+    <title>{% block title %}Portfolio{% endblock %}</title>
+</head>
+
+<body>
+    <header class="center-row">
+        <div class="header-left-side center-row">
+            <a href="{% url 'home' %}">C. L. Blue</a>
+        </div>
+        <nav class="header-right-side">
+            <button class="hamburger-menu" aria-label="Toggle navigation">
+                &#9776;
+            </button>
+            <div class="nav-options center-row">
+                <a href="{% url 'home' %}#about">About Me</a>
+                <a href="{% url 'home' %}#skills">Skills</a>
+                <a href="{% url 'list' %}">Projects</a>
+                <a href="{% url 'home' %}#experience">Experience</a>
+                <a href="{% url 'home' %}#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

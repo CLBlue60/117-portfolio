@@ -1,0 +1,81 @@
+#about,
+#skills {
+  padding: 2rem;
+}
+
+.about-me-image-container {
+  width: 40%;
+}
+
+.about-me-image-container img {
+  width: 100%;
+}
+
+.about-me-descr-container {
+  width: 60%;
+}
+
+@media (max-width: 1007px) {
+  #about {
+    flex-direction: column;
+  }
+
+  .about-me-descr-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .about-me-image-container {
+    width: 40%;
+  }
+}
+
+.skills-list {
+  color: var(--secondary-color);
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.text-label {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+.projects {
+    color: var(--secondary-color);
+}
+
+.projects-section {
+    margin-top: 6rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+    width: 25rem
+}
+
+.project-card :hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.project-card img {
+    width: 100%;
+}
+
+.project-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
