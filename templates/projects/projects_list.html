@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+<section class="projects-section py-5">
+    <div class="container">
+        <h1 class="text-uppercase text-center mb-5">Projects</h1>
+        <div class="row justify-content-center">
+            {% for project in projects %}
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="project-card p-4 shadow-lg rounded"
+                    style="background-color: var(--primary-color); border: 2px solid var(--secondary-color);">
+                    <h2 class="fw-bold mb-2">{{ project.title }}</h2>
+                    <p class="mb-1">{{ project.description }}</p>
+                    <p class="mb-1">{{ project.year }}</p>
+                    <a href="{{ project.link }}" class="btn mt-3" style="background-color: var(--secondary-color); color: #fff;">View Project</a>
+                    <div class="skills-list mt-3">
+                        {% for skill in project.skills.all %}
+                        <span class="badge me-1" style="background-color: var(--background-color); color: #fff;">{{ skill.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'home' %}" class="btn btn-warning">Back to Home</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

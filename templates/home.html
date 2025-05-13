@@ -5,51 +5,42 @@
 
 {% block content %}
 <main>
-    <section id="about" class="center-row">
-        <div class="about-me-image-container center-row">
-            <img src="{% static 'img/selfie.jpg' %}" alt="my picture">
-        </div>
-        <div class="about-me-descr center-column">
-            <h1>About Me</h1>
-            <p class="subtitles">
-                I’m a web developer with a passion for building clean, functional, and responsive applications. With a
-                background in the
-                military and training from the SMU Full-Stack Coding Bootcamp, I bring discipline, problem-solving
-                skills, and a strong
-                work ethic to every project. I enjoy working with both front-end and back-end technologies, with a
-                particular interest
-                in backend development and creating efficient, scalable systems. I’m constantly learning and pushing
-                myself to grow as a
-                developer, and I’m excited to contribute to meaningful projects and collaborative teams.
-            </p>
-        </div>
-    </section>
-
-    <section id="skills" class="center-column">
-        <h2 class="subtitles">My Skills</h2>
-        <div class="skills-list center-row">
-            <label class="text-label">JavaScript</label>
-            <label class="text-label">Django</label>
-            <label class="text-label">React.js</label>
-            <label class="text-label">RESTful APIs</label>
-            <label class="text-label">Git</label>
-            <label class="text-label">Responsive Web Design</label>
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <div class="about-me-image-container">
+                        <img src="{% static 'img/selfie.jpg' %}" alt="my picture"
+                            class="img-fluid rounded-circle shadow-lg border border-3 about-image">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h1 class="display-4 fw-bold mb-4 about-title">About Me</h1>
+                    <p class="lead about-text">
+                        I'm a web developer with a passion for building clean, responsive, and user-friendly
+                        applications. With a background in
+                        the military and web development training from both SMU's Full-Stack Bootcamp and SDGKU, I bring
+                        discipline,
+                        problem-solving skills, and a strong work ethic to every project. I enjoy working across the
+                        stack, with a special
+                        interest in backend development and creating efficient, scalable systems. I'm always learning
+                        and excited to grow as a
+                        developer while contributing to meaningful, team-driven work.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
-
-    <section id="experience" class="center-column">
-        <h1>Experience</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis accusantium beatae sunt dignissimos optio
-            at asperiores dolore dicta minima, officia incidunt, in itaque? Sapiente expedita odit alias earum quisquam
-            explicabo saepe aliquam deleniti natus quasi, quibusdam nisi incidunt voluptate sint numquam! Ad
-            perspiciatis odio recusandae cumque quod corporis, nesciunt consectetur.
-        </p>
-    </section>
-
-    <section id="contact" class="center-column">
-        <h1>Contact Me</h1>
-        <p class="subtitles">Let's get in touch</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4 contact-title">Contact Me</h1>
+            <p class="lead contact-text">Let's get in touch</p>
+            <a href="{% url 'contact' %}" class="btn btn-lg contact-button">
+                Reach Out
+            </a>
+        </div>
     </section>
 </main>
 {% endblock %}

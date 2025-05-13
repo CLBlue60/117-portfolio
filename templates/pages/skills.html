@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="skills-section py-5">
+    <div class="container">
+        <h1 class="text-uppercase text-center mb-5" style="color: var(--secondary-color);">Skills</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <ul class="list-group shadow-lg rounded" style="border: 2px solid var(--secondary-color);">
+                    {% for skill in skills %}
+                    <li class="list-group-item text-center" style="background-color: var(--primary-color);
+                               color: var(--secondary-color);
+                               border-color: var(--secondary-color);
+                               padding: 1rem;">
+                        {{ skill.name }}
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item text-center" style="background-color: var(--primary-color);
+                               color: var(--secondary-color);
+                               border-color: var(--secondary-color);
+                               padding: 1rem;">
+                        No skills available.
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

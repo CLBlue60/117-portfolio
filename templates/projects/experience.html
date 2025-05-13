@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Experience{% endblock %}
+
+{% block content %}
+<section id="experience" class="experience-section py-5">
+    <div class="container">
+        <h2 class="text-uppercase text-center mb-5" style="color: var(--secondary-color);">Professional Experience</h2>
+        <div class="row justify-content-center">
+            {% for exp in experiences %}
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="experience-item text-center p-4 shadow-lg rounded" style="background-color: var(--primary-color);
+                            border: 2px solid var(--secondary-color);
+                            color: var(--secondary-color);">
+                    <h3 class="mb-2">{{ exp.title }}</h3>
+                    <p class="company mb-1">{{ exp.company }}</p>
+                    <p class="duration">{{ exp.duration }}</p>
+                    {% if exp.description %}
+                    <div class="experience-description mt-3">
+                        {{ exp.description }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
