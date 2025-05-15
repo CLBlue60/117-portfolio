@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import ContactForm
 from django.core.mail import send_mail
+from django.conf import settings
 
 def home_view(request):
     return render(request, 'home.html')
@@ -10,8 +11,6 @@ def contact_view(request):
         form = ContactForm(request.POST)
 
         if form.is_valid():
-            print("The Data is valid")
-
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
@@ -24,26 +23,32 @@ def contact_view(request):
 
             try:
                 send_mail(
-                    "Email from Portfolio",
+                    "Message from Portfolio Contact Form",
                     message_body,
                     email,
-                    ['blueofill@gmail.com'],
-
+                    [settings.EMAIL_HOST_USER],
+                    fail_silently=False,
                 )
-                print("Email sent successfully")
 
-                return render(request, 'pages/contact.html', {'form': form})
-
-
-            except Exception as e:
-                print(f"Error sending the email: {e}")
                 return render(request, 'pages/contact.html', {
-                     'form': form,
-                     'error': str(e)
+                    'form': ContactForm(),
+                    'success': True
                 })
 
+            except Exception as e:
+
+                return render(request, 'pages/contact.html', {
+                    'form': form,
+                    'error': f"Failed to send message. Error: {str(e)}"
+                })
         else:
-                print("The Data is not valid")
+
+            return render(request, 'pages/contact.html', {
+                'form': form,
+                'error': "Please correct the errors below."
+            })
     else:
+
         form = ContactForm()
+
     return render(request, 'pages/contact.html', {'form': form})

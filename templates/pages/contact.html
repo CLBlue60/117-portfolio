@@ -8,23 +8,73 @@
         <h1 class="text-uppercase text-center mb-5">Contact Me</h1>
         <p class="lead text-center mb-4">If you have any questions or would like to get in touch, please fill out the
             form below.</p>
+
+        <!-- Success Message -->
+        {% if success %}
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="alert alert-success text-center">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Your message has been sent successfully! I'll get back to you soon.
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Error Message -->
+        {% if error %}
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="alert alert-danger text-center">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    {{ error }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8">
                 <form method="POST" id="contact-form" class="p-4 shadow-lg rounded"
                     style="background-color: var(--primary-color); border: 2px solid var(--secondary-color);">
                     {% csrf_token %}
+
+                    <!-- Name Field -->
                     <div class="mb-3">
+                        <label for="{{ form.name.id_for_label }}" class="form-label">Name</label>
                         {{ form.name }}
+                        {% if form.name.errors %}
+                        <div class="text-danger small mt-1">{{ form.name.errors }}</div>
+                        {% endif %}
                     </div>
+
+                    <!-- Email Field -->
                     <div class="mb-3">
+                        <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
                         {{ form.email }}
+                        {% if form.email.errors %}
+                        <div class="text-danger small mt-1">{{ form.email.errors }}</div>
+                        {% endif %}
                     </div>
+
+                    <!-- Message Field -->
                     <div class="mb-3">
+                        <label for="{{ form.message.id_for_label }}" class="form-label">Message</label>
                         {{ form.message }}
+                        {% if form.message.errors %}
+                        <div class="text-danger small mt-1">{{ form.message.errors }}</div>
+                        {% endif %}
                     </div>
+
+                    <!-- Form Buttons -->
                     <div class="form-controllers mt-4 text-center">
-                        <button type="reset" class="btn btn-secondary me-2">Reset</button>
-                        <button type="submit" class="btn btn-warning" style="background-color: var(--secondary-color); color: #fff;">Submit</button>
+                        <button type="reset" class="btn btn-secondary me-2">
+                            <i class="fas fa-undo me-1"></i> Reset
+                        </button>
+                        <button type="submit" class="btn btn-warning"
+                            style="background-color: var(--secondary-color); color: #fff;">
+                            <i class="fas fa-paper-plane me-1"></i> Send Message
+                        </button>
                     </div>
                 </form>
             </div>

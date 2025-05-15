@@ -139,13 +139,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #email connection/configuration
+# Email Configuration (fix the duplicate TLS line)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_USE_TLS=False
-EMAIL_USE_TLS=True
-EMAIL_HOST_USER=env('SMTP_EMAIL')
-EMAIL_HOST_PASSWORD=env('SMTP_PASS')
-
-CRISPY_TEMPLATE_PACK = 'bootstrap5' 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True 
+EMAIL_HOST_USER = env('SMTP_EMAIL')
+EMAIL_HOST_PASSWORD = env('SMTP_PASS')

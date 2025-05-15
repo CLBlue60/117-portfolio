@@ -1,12 +1,23 @@
 from django import forms
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100, required=True)
-    email = forms.EmailField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
-
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if not email.endswith('@example.com'):
-            raise forms.ValidationError("Email must be from the domain 'example.com'")
-        return email
+    name = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Your name'
+        })
+    )
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Your email'
+        })
+    )
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Your message',
+            'rows': 5
+        })
+    )
